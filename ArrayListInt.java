@@ -40,20 +40,20 @@ public class ArrayListInt
     }
 
     public void add(int index, int elemento){
-        if((index < lista.length) && index >= 0){
+        if((index <= lista.length) && index >= 0){
 
             int [] temporal = new int [lista.length + 1];
             int indice = 0;
             int indice2 = 0;
             while(indice < lista.length){
                 if(indice2 == index){
-                    temporal[indice2] = elemento;
+                    temporal[indice] = elemento;
                 }
                 else{
-                    temporal[indice2] = lista[indice];
-                    indice++;
+                    temporal[indice] = lista[indice2];
+                    indice2++;
                 }
-                indice2++;
+                indice++;
             }
             lista = temporal;
         }
@@ -70,7 +70,7 @@ public class ArrayListInt
     public boolean contains(int elemento){
         boolean contenido = false;
         int indice = 0;
-        if(indice < lista.length && !(contenido)){
+        for (int index = 0; index < lista.length && !(contenido); index++){
             if(lista[indice] == elemento){
                 contenido = true;
             }
@@ -91,7 +91,7 @@ public class ArrayListInt
     
     public void set(int index, int elemento){
         if(index >= 0 && index < lista.length){
-            elemento = lista[index];
+             lista[index]= elemento;
         } 
     
     }
@@ -104,7 +104,7 @@ public class ArrayListInt
         while(indice < lista.length && !(encontrado)){
             if(lista[indice] == elemento){
                 encontrado = true;
-                indice = indiceEncontrado;
+                indiceEncontrado = indice;
             }
             else{
                 encontrado = false;
